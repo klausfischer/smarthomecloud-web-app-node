@@ -200,9 +200,9 @@ DeviceController.prototype.listDevices = function() {
 	var self = this;
 
 	var $tableContainer = $(self.devicesDOMtable);
-	var $table = $("<table class='table table-sm table-striped'><thead><tr><th>Id</th><th>Connection State</th><th>Last Activity Time</th></tr></thead></table>");
+	var $table = $("<table class='table table-sm table-striped'><thead><tr><th>Id</th><th>State</th><th>Last Activity Time</th></tr></thead></table>");
 	for (var k = 0; k < self.devices.length; k++) {
-		$table.append("<tr><td>" + self.devices[k].Id + "</td><td data-connection-state='" + self.devices[k].ConnectionState + "'>" +  self.devices[k].ConnectionState + "</td><td>" + new Date(self.devices[k].LastActivityTime).toLocaleString() + "</td></tr>");
+		$table.append("<tr><td>" + self.devices[k].Id + "</td><td data-connection-state='" + self.devices[k].State + "'>" +  self.devices[k].State + "</td><td>" + new Date(self.devices[k].LastActivityTime).toLocaleString() + "</td></tr>");
 	};
 	$tableContainer.removeAttr("hidden");
 	$tableContainer.append($table);
@@ -231,14 +231,14 @@ $(document).ready(function() {
 		if ($button.hasClass("active")) {
 			$button.text("On");
 			data = {
-				id: "Rpi1",
-				command: "#cmd:set_pin;4;1"
+				"id": "Rpi1",
+				"command.action": "#cmd:set_pin;4;1"
 			};
 		} else {
 			$button.text("Off");	
 			data = {
-				id: "Rpi1",
-				command: "#cmd:set_pin;4;0"
+				"id": "Rpi1",
+				"command.action": "#cmd:set_pin;4;0"
 			};
 		} 
 		
@@ -250,10 +250,10 @@ $(document).ready(function() {
 			dataType: "json",
 			data: data
 		}).done(function(result) {
-			console.log(result);
+			console.log("Switch LED success");
 
 		}).fail(function(data, textStatus, xhr) {
-			console.log("GET devices failed");
+			console.log("Switch LED fail");
 			console.log(data);
 			console.log(textStatus);
 			console.log(xhr);

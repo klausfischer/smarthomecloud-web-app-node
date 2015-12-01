@@ -38,10 +38,10 @@ a.nav-link {
 }
 
 /* */
-[data-connection-state="Connected"] {
+[data-connection-state="Enabled"] {
 	color: #3c763d;
 }
-[data-connection-state="Disconnected"] {
+[data-connection-state="Disabled"] {
 	color: #a94442;
 }
 
