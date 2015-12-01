@@ -1,0 +1,28 @@
+{
+  "name": "WebsiteNode",
+  "description": "Cloud computing project",
+  "main": "app.js",
+  "authors": [
+    "Klaus Fischer <klausfisc@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "express",
+    "azure"
+  ],
+  "homepage": "https://github.com/thomasjetzinger/smarthomecloud",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha"
+  }
+}

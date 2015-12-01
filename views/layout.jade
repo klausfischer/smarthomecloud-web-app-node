@@ -1,0 +1,23 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+		script(src='https://www.google.com/jsapi')
+		script(src='scripts/bootstrap.min.js')
+		script(src='scripts/main.js')
+		
+	body.app
+		nav.navbar.m-b-lg
+			a.navbar-brand(href='/') SmartHomeCloud
+			ul.nav.nav-pills.pull-right
+				li.nav-item.active
+					a.nav-link(href="/", class=activeItem == "dashboard" ? "active" : undefined) Dashboard
+				li.nav-item
+					a.nav-link(href="/tasks", class=activeItem == "tasks" ? "active" : undefined) Tasks
+		block content
+		footer.container
+			div.row.m-b-lg
+				small.col-xs-12 Development

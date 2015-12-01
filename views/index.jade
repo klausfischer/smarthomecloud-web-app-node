@@ -1,0 +1,33 @@
+extends layout
+
+block content
+
+	div.container
+		
+		main.col-xs-12.col-md-8
+			section.graphs.row.m-b-lg
+				div.col-xs-12
+					h3 Sensors
+					div#graph1(hidden).m-b
+					div#table1(hidden)
+					h3 Devices
+					div#tableDevices(hidden)
+					
+			section.actions.row.m-b-lg
+				div.col-xs-12
+					h3 Actions
+					div.row
+						div.col-xs-12.col-sm-6
+							button#btn--led.btn.btn-secondary.btn-led(type="button") Off
+							span.btn-led-label.text-muted LED
+								
+									
+						
+				
+		aside.col-xs-12.col-md-4
+			section.notifications.row.m-b-lg
+				div.col-xs-12
+					h3 Notifications
+					ul#notifications.no-style
+						
+

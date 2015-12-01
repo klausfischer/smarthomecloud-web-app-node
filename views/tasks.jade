@@ -1,0 +1,39 @@
+extends layout
+
+block content
+
+	div.container
+		
+		section.tasks-list.row.m-b-lg
+			div.col-xs-12
+				form(action="/tasks/completetask", method="post")
+					table.table.table-striped.table-bordered
+						tr
+							td Name
+							td Category
+							td Date
+							td Complete
+						if (typeof tasks === "undefined")
+						else
+							each task in tasks
+								tr
+									td #{task.name._}
+									td #{task.category._}
+									- var day   = task.Timestamp._.getDate();
+									- var month = task.Timestamp._.getMonth() + 1;
+									- var year  = task.Timestamp._.getFullYear();
+									td #{month + "/" + day + "/" + year}
+									td
+										input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
+					button.btn(type="submit") Update tasks
+		section.tasks-add.row.m-b-lg
+			div.col-xs-12.col-sm-6
+				form(action="/tasks/addtask", method="post")
+					fieldset.form-group
+						label(for="item-name") Item Name:
+						input.form-control(name="itemName", type="textbox", id="item-name", required)
+					fieldset.form-group
+						label(for="item-category") Item Category:
+						input.form-control(name="itemCategory", type="textbox" id="item-category", required)
+					
+					button.btn.btn-primary(type="submit") Add item
