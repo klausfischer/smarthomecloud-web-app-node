@@ -230,25 +230,17 @@ $(document).ready(function() {
 
 		if ($button.hasClass("active")) {
 			$button.text("On");
-			data = {
-				"id": "Rpi1",
-				"command.action": "#cmd:set_pin;4;1"
-			};
+			data = "command.action=" + encodeURIComponent("#cmd:set_pin;4;1");
 		} else {
 			$button.text("Off");	
-			data = {
-				"id": "Rpi1",
-				"command.action": "#cmd:set_pin;4;0"
-			};
+			data = "command.action=" + encodeURIComponent("#cmd:set_pin;4;0");
 		} 
 		
 		var url = "http://smarthomecloud-api.azurewebsites.net/api/Device/Rpi1";
 
 		$.ajax({
-			url: url,
-			type: "POST",
-			dataType: "json",
-			data: data
+			url: url + "?" + data,
+			type: "POST"
 		}).done(function(result) {
 			console.log(result);
 			console.log("Switch LED success");
