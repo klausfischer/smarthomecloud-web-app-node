@@ -250,6 +250,7 @@ $(document).ready(function() {
 			dataType: "json",
 			data: data
 		}).done(function(result) {
+			console.log(result);
 			console.log("Switch LED success");
 
 		}).fail(function(data, textStatus, xhr) {
